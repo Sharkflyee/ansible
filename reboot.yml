@@ -1,0 +1,8 @@
+- hosts: all
+
+  become: yes
+  tasks:
+    - name: Reboot the machine 
+      become: true
+      reboot:
+        reboot_timeout: 60
