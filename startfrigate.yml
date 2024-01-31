@@ -10,5 +10,5 @@
     - name: Stop running containers
       docker_container:
         name: "{{ item }}"
-        state: stopped
+        state: started
       loop: "{{ docker_info.containers | map(attribute='Id') | list }}"
