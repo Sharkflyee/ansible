@@ -2,13 +2,7 @@
 
   gather_facts: false
   tasks:
-    - name: Get running containers
-      docker_host_info:
-        containers: yes
-      register: docker_info
-
-    - name: Stop running containers
+    - name: start a container
       docker_container:
-        name: "{{ item }}"
+        name: frigate
         state: started
-      loop: "{{ docker_info.containers | map(attribute='Id') | list }}"
